@@ -1,6 +1,6 @@
-# DropboxUtility
+# Dropbox Utility
 
-TODO: Write a gem description
+This application is a simple command-line utility for interacting with Dropbox.
 
 ## Installation
 
@@ -19,6 +19,11 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+## To-do
+
+* Add more features.
+* Determine best way to save configuration file for cross-platform integration.
 
 ## Contributing
 
