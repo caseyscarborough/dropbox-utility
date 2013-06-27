@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require_relative '../lib/dropbox_utility'
+
+
+client = DropboxUtility::authenticate
+options = {}
+
+OptionParser.new do |o|
+  o.banner = "Usage #{o.program_name} [options]"
+
+  o.on('-u','Displays user information') { |o| options[:user_info] = o }
+  if ARGV.length == 0 then puts o; exit end
+
+  begin
+    o.parse!
+  rescue Exception => e
+    abort e.message
+  end
+
+end
+
+if options[:user_info] then client.get_info end

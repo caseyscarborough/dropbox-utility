@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dropbox_utility/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "dropbox_utility"
+  spec.name          = "dropbox-utility"
   spec.version       = DropboxUtility::VERSION
   spec.authors       = ["Casey Scarborough"]
   spec.email         = ["caseyscarborough@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A simple Dropbox utility for interacting with Dropbox.}
+  spec.summary       = %q{A simple Dropbox utility for interacting with Dropbox.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
