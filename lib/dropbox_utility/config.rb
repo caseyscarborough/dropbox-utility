@@ -8,7 +8,7 @@ module DropboxUtility
     APP_KEY = ''
     APP_SECRET = ''
     ACCESS_TYPE = :dropbox
-    AUTH_FILE = '/Users/Casey/.dropbox-utility'
+    AUTH_FILE = Dir.home + '/.dropbox-utility'
 
   end
 end

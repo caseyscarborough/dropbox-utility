@@ -11,5 +11,19 @@ module DropboxUtility
       end
     end
 
+    def self.list(folder = '/')
+      begin
+        files_metadata = DropboxUtility::client.metadata(folder)
+        files_metadata["contents"].each do |f|
+          path = f["path"]
+          name = File.basename(path)
+          if (f["is_dir"]) then name += '/' end
+          puts name
+        end
+      rescue Exception => e
+        abort e.message
+      end
+    end
+
   end
 end

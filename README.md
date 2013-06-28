@@ -1,12 +1,14 @@
 # Dropbox Utility
 
-This application is a simple command-line utility for interacting with Dropbox. The application is in the
+This application is a simple command-line RubyGem utility for interacting with Dropbox. The application is in the
 beginning stages of development, and more features are planned.
 
 The current features are listed below:
 
 * Display user information
 * Upload single files
+* List directory contents
+
 
 ## Usage
 
@@ -16,12 +18,16 @@ The following is the usage instructions for the application.
 Usage: dropbox-utility [options]
     -i, --info                       Displays user information
     -u, --upload FILENAME            Specifies filename to upload
+    -l, --list [PATH]                Lists contents of PATH specified.
+                                     Uses root directory if PATH not given.
 ```
+
 
 ## Installation
 
-Until the application gets uploaded as a gem, you can begin by cloning the repository or downloading and
-extracting.
+Until the application gets uploaded as a gem, you can begin by cloning the repository or
+[downloading the zip archive](https://github.com/caseyscarborough/dropbox-utility/archive/master.zip) and
+extracting it.
 
 For the application to work, you must add your Dropbox Developer application key and secret to the file located at
 <code>lib/dropbox-utility/config.rb</code>, as well as the save location for your configuration file, shown below.
@@ -29,7 +35,7 @@ For the application to work, you must add your Dropbox Developer application key
 APP_KEY = 'your-app-key'
 APP_SECRET = 'your-app-secret'
 ACCESS_TYPE = :dropbox
-AUTH_FILE = '/Users/Casey/.dropbox-utility'
+AUTH_FILE = Dir.home + '/.dropbox-utility'
 ```
 
 If you do not have an application key and secret, you can begin by going to [https://www.dropbox.com/developers/apps](https://www.dropbox.com/developers/apps)
@@ -42,11 +48,17 @@ $ bundle install
 $ ruby bin/dropbox-utility
 ```
 
+The first time you run the application, you will need to authenticate the application by clicking 'Allow' in
+the browser window that appears. After that, your session will be saved in your user directory in a file named
+<code>.dropbox-utility</code>.
 
 ## To-do
 
 * Add more features.
-* Determine best way to save configuration file for cross-platform integration.
+* Possibly refactor to be more intuitive.
+* Add tests using Rspec.
+* Create documentation.
+
 
 ## Contributing
 
