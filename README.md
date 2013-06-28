@@ -25,7 +25,20 @@ Usage: dropbox-utility [options]
 
 ## Installation
 
-Until the application gets uploaded as a gem, you can begin by cloning the repository or
+
+If you'd like to use the application, you can install it by running the following command from the command
+line on your machine.
+```
+gem install dropbox-utility
+```
+
+After the installation, you can then run the application from anywhere in the command line:
+
+```
+dropbox-utility [options]
+```
+
+If you'd like to contribute, you can begin by cloning the repository or
 [downloading the zip archive](https://github.com/caseyscarborough/dropbox-utility/archive/master.zip) and
 extracting it.
 
@@ -45,7 +58,7 @@ After completing this, run <code>bundle install</code> and then the executable f
 
 ```
 $ bundle install
-$ ruby bin/dropbox-utility
+$ ruby bin/dropbox-utility [options]
 ```
 
 The first time you run the application, you will need to authenticate the application by clicking 'Allow' in
