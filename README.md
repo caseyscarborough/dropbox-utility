@@ -8,6 +8,8 @@ The current features are listed below:
 * Display user information
 * Upload single files
 * List directory contents
+* Store authentication
+* Delete authentication
 
 
 ## Usage
@@ -18,8 +20,10 @@ The following is the usage instructions for the application.
 Usage: dropbox-utility [options]
     -i, --info                       Displays user information
     -u, --upload FILENAME            Specifies filename to upload
-    -l, --list [PATH]                Lists contents of PATH specified.
+    -l, --list [PATH]                Lists contents of PATH specified
                                      Uses root directory if PATH not given.
+    -d                               Removes authentication file. Will require
+                                     re-authentication on next application start
 ```
 
 
