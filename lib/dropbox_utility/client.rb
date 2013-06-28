@@ -9,5 +9,9 @@ module DropboxUtility
       puts "\n"
     end
 
+    def list_directory_contents(directory)
+
+    end
+
   end
 end

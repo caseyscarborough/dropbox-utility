@@ -4,13 +4,15 @@ require 'optparse'
 require_relative '../lib/dropbox_utility'
 
 
-client = DropboxUtility::authenticate
+DropboxUtility::authenticate
+
 options = {}
 
 OptionParser.new do |o|
-  o.banner = "Usage #{o.program_name} [options]"
+  o.banner = "Usage: #{o.program_name} [options]"
 
-  o.on('-u','Displays user information') { |o| options[:user_info] = o }
+  o.on('-i','--info','Displays user information') { |o| options[:user_info] = o }
+  o.on('-u FILENAME','--upload FILENAME','Specifies filename to upload') { |o| options[:filename] = o }
   if ARGV.length == 0 then puts o; exit end
 
   begin
@@ -21,4 +23,5 @@ OptionParser.new do |o|
 
 end
 
-if options[:user_info] then client.get_info end
+if options[:user_info] then DropboxUtility::client.get_info end
+if options[:filename] then DropboxUtility::Files::upload(options[:filename]) end
