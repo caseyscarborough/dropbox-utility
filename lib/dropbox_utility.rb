@@ -27,4 +27,8 @@ module DropboxUtility
     @@client
   end
 
+  def self.delete_authentication_file
+    Session.delete
+  end
+
 end

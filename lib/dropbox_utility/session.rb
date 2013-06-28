@@ -37,5 +37,18 @@ module DropboxUtility
       end
     end
 
+    def self.delete
+      if self.exists?
+        begin
+          File.delete(DropboxUtility::Config::AUTH_FILE)
+          puts "Authorization file successfully deleted."
+        rescue Exception => e
+          abort e.message
+        end
+      else
+        puts "Authentication file doesn't exist yet."
+      end
+    end
+
   end
 end

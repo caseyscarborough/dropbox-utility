@@ -3,9 +3,6 @@
 require 'optparse'
 require_relative '../lib/dropbox_utility'
 
-
-DropboxUtility::authenticate
-
 options = {}
 help = nil
 
@@ -14,8 +11,10 @@ OptionParser.new do |o|
 
   o.on('-i','--info','Displays user information') { |o| options[:user_info] = o }
   o.on('-u FILENAME','--upload FILENAME','Specifies filename to upload') { |o| options[:filename] = o }
-  o.on('-l [PATH]','--list [PATH]', 'Lists contents of PATH specified.',
+  o.on('-l [PATH]','--list [PATH]', 'Lists contents of PATH specified',
        'Uses root directory if PATH not given.') { |o| options[:folder] = o ? o : '/' }
+  o.on('-d','Removes authentication file. Will require',
+       're-authentication on next application start') { |o| options[:delete] = o }
 
   help = o.to_s
 
@@ -29,6 +28,10 @@ OptionParser.new do |o|
   end
 
 end
+
+if options[:delete] then DropboxUtility::delete_authentication_file; exit end
+
+DropboxUtility::authenticate
 
 if options[:user_info] then DropboxUtility::client.get_info end
 if options[:filename] then DropboxUtility::Files::upload(options[:filename]) end
