@@ -73,7 +73,6 @@ the browser window that appears. After that, your session will be saved in your 
 
 * Add more features.
 * Possibly refactor to be more intuitive.
-* Add tests using Rspec.
 * Create documentation.
 
 
