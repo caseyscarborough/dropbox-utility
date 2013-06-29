@@ -1,11 +1,11 @@
 begin
-  require 'dropbox_sdk'
   require 'launchy'
 rescue Exception => e
   puts "Some gems are missing."
   abort e.message
 end
 
+require_relative '../vendor/dropbox_sdk/dropbox_sdk'
 require_relative 'dropbox_utility/config'
 require_relative 'dropbox_utility/version'
 require_relative 'dropbox_utility/session'
