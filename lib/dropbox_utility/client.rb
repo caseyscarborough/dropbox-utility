@@ -2,15 +2,8 @@ module DropboxUtility
   class Client < DropboxClient
 
     def get_info
-      client_info = self.account_info()
-      puts "\n" + client_info["display_name"]
-      puts client_info["email"]
-      puts "Referral Link: " + client_info["referral_link"]
-      puts "\n"
-    end
-
-    def list_directory_contents(directory)
-
+      "\n" + account_info["display_name"] + "\n" + account_info["email"] +
+      "\n" + "Referral Link: " + account_info["referral_link"] + "\n"
     end
 
   end

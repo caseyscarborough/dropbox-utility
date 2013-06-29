@@ -3,6 +3,19 @@
 require 'optparse'
 require_relative '../lib/dropbox_utility'
 
+if DropboxUtility::Config::APP_KEY == ''
+  puts "
+Please enter your app key and secret into the configuration file located at
+lib/dropbox-utility/config.rb.
+
+If you do not have these, check out http://dropbox.com/developers/apps
+for more information.
+
+"
+  exit
+end
+
+
 options = {}
 help = nil
 
@@ -33,6 +46,6 @@ if options[:delete] then DropboxUtility::delete_authentication_file; exit end
 
 DropboxUtility::authenticate
 
-if options[:user_info] then DropboxUtility::client.get_info end
+if options[:user_info] then puts DropboxUtility::client.get_info end
 if options[:filename] then DropboxUtility::Files::upload(options[:filename]) end
 if options[:folder] then DropboxUtility::Files::list(options[:folder]) end

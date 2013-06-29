@@ -6,6 +6,7 @@ module DropboxUtility
         file = open(filename)
         DropboxUtility::client.put_file('/' + filename, file)
         puts "File #{filename} successfully uploaded."
+        return true
       rescue Exception => e
         abort e.message
       end
@@ -20,6 +21,7 @@ module DropboxUtility
           if (f["is_dir"]) then name += '/' end
           puts name
         end
+        return true
       rescue Exception => e
         abort e.message
       end

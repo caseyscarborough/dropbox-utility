@@ -2,8 +2,12 @@ module DropboxUtility
   module Session
 
     def self.retrieve
-      File.open(DropboxUtility::Config::AUTH_FILE, 'r') do |f|
-        DropboxSession::deserialize(f.read)
+      begin
+        File.open(DropboxUtility::Config::AUTH_FILE, 'r') do |f|
+          DropboxSession::deserialize(f.read)
+        end
+      rescue Exception => e
+        puts e.message
       end
     end
 
@@ -41,12 +45,12 @@ module DropboxUtility
       if self.exists?
         begin
           File.delete(DropboxUtility::Config::AUTH_FILE)
-          puts "Authorization file successfully deleted."
+          "Authentication file successfully deleted."
         rescue Exception => e
           abort e.message
         end
       else
-        puts "Authentication file doesn't exist yet."
+        "Authentication file doesn't exist yet."
       end
     end
 
